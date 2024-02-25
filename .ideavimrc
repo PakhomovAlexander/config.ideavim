@@ -1,56 +1,30 @@
 let mapleader=" "
 
-""" Plugins  --------------------------------
-set surround
-set multiple-cursors
-set commentary
-set argtextobj
-set easymotion
-set textobj-entire
-set ReplaceWithRegister
-set exchange
-
-""" My settings ------------------------------
-set :nohlsearch
-
-" Trying the new syntax
-Plug 'machakann/vim-highlightedyank'
-""" Plugin settings -------------------------
-let g:argtextobj_pairs="[:],(:),<:>"
-" <C-n> seems to me as a better solution than <M-n>,
-" but we should finally support vim-visual-multi because vim-multiple-cursors is deprecated now
-map <C-n> <Plug>NextWholeOccurrence
-
-""" Common settings -------------------------
-set showmode
-set so=5
-set incsearch
+" Settings ====================================
+" set :nohlsearch
+set so=10
 set nu
 
-""" Idea specific settings ------------------
-set ideajoin
-set ideastatusicon=gray
+" needs an ide reload
+set relativenumber
 
-""" My Mappings -----------------------------
-""" map <leader>f <Plug>(easymotion-s)
-""" map <leader>e <Plug>(easymotion-f)
-""" map <leader>d <Action>(Debug)
-""" map <leader>r <Action>(RenameElement)
-""" map <leader>c <Action>(Stop)
-""" map <leader>z <Action>(ToggleDistractionFreeMode)
-""" map <leader>s <Action>(SelectInProjectView)
-""" map <leader>a <Action>(Annotate)
-""" map <leader>h <Action>(Vcs.ShowTabbedFileHistory)
-""" map <S-Space> <Action>(GotoNextError)
+set showmode
+set showcmd
 
-" Reformat the current line only
-map <leader>l V<Action>(ReformatCode)
-" map <leader>b <Action>(ToggleLineBreakpoint)
-" map <leader>o <Action>(FileStructurePopup)
-" map <leader>J Ji <ESC>
+set clipboard+=unnamed
+
+" search improve
+set ignorecase
+set smartcase
+set incsearch
+set nohlsearch
 
 
-" My own mappings
+" Plugins =====================================
+set highlightedyank
+
+
+" Mappings ====================================
 map <leader>sg <Action>(Generate)
 map <leader>sv <Action>(IntroduceVariable)
 map <leader>sm <Action>(ExtractMethod)
@@ -69,7 +43,7 @@ map <leader>jd <Action>(GotoDeclaration)
 map <leader>ji <Action>(GotoImplementation)
 map <leader>jt <Action>(GotoTest)
 
-map <leader>f <Plug>(easymotion-s)
+" map <leader>f <Plug>(easymotion-s)
 map <leader>F <Action>(FindInPath)
 
 map <leader>pr <Action>(ExternalSystem.RefreshAllProjects)
@@ -97,33 +71,7 @@ map <leader>e <Action>(GotoNextError)
 map <leader>E <Action>(GotoPrevious1Error)
 
 
-" Just makes me nervous
-" map H h
-" Toggle case and start typing. E.g. `<leader>iget`: `property` -> `getProperty`
-" map <leader>i ~hi
-" ReMove selection and toggle case. E.g. `v2l<leader>u`: `getProperty` -> `property`
-" vmap <leader>u d~h
-" I think it's a better solution
-map U <C-R>
-
-
-
-
-
-
-"" -- Suggested options --
-" Show a few lines of context around the cursor. Note that this makes the
-" text scroll if you mouse-click near the start or end of the window.
-set scrolloff=10
-
-" Do incremental searching.
-set incsearch
 
 " Don't use Ex mode, use Q for formatting.
 map Q gq
-
-" Highlight copied text
-Plug 'machakann/vim-highlightedyank'
-" Commentary plugin
-Plug 'tpope/vim-commentary'
 
