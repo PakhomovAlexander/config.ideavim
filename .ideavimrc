@@ -15,62 +15,85 @@ set clipboard+=unnamed
 
 " search improve
 set ignorecase
-set smartcase
+set hlsearch
 set incsearch
-set nohlsearch
+nnoremap <Esc> :nohlsearch<CR>
 
+map <C-l> <C-w>l
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
 
 " Plugins =====================================
 set highlightedyank
+set easymotion
 
 
 " Mappings ====================================
+
+" s - generate
 map <leader>sg <Action>(Generate)
 map <leader>sv <Action>(IntroduceVariable)
 map <leader>sm <Action>(ExtractMethod)
-map <leader>sm <Action>(ExtractMethod)
 map <leader>sc <Action>(IntroduceConstant)
 
-map <leader>kf <Action>(GotoFile)
-map <leader>kc <Action>(GotoClass)
-
-map <C-p> <Action>(Back)
-map <C-n> <Action>(Forward)
-
+" r - rename
 map <leader>r <Action>(RenameElement)
 
+" j - jump
 map <leader>jd <Action>(GotoDeclaration)
 map <leader>ji <Action>(GotoImplementation)
 map <leader>jt <Action>(GotoTest)
 
-" map <leader>f <Plug>(easymotion-s)
-map <leader>F <Action>(FindInPath)
+" e - error
+map <leader>e <Action>(GotoNextError)
+map <leader>E <Action>(GotoPreviousError)
 
+" k - search
+map <leader>k <Plug>(easymotion-s)
+
+" p - project
 map <leader>pr <Action>(ExternalSystem.RefreshAllProjects)
 map <leader>ps <Action>(SelectInProjectView)
 map <leader>pv <Action>(IdeaVim.ReloadVimRc.reload)
+map <leader>pw <Action>(ActivateProjectToolWindow)
 
-map <leader>gb <Action>(Annotate)
+" g - git
+map <leader>ga <Action>(Annotate)
+map <leader>gc <Action>(CheckinProject)
 
-map <leader>hd <Action>(QuickJavaDoc)
+" h - help
+map <leader>h <Action>(QuickJavaDoc)
+map gh <Action>(ShowHoverInfo)
 
+" a - action
 map <leader>a <Action>(GotoAction)
 
+" d - Run/Debug
 map <leader>df <Action>(RunClass)
 map <leader>dr <Action>(Run)
 map <leader>db <Action>(Debug)
 
+" breackpoint - build
+map <leader>b <Action>(ToggleLineBreakpoint)
 
 imap <C-i> <Action>(ParameterInfo)
 
-map <leader>ke <Action>(RecentFiles)
-map <leader>kj <Action>(FindInPath)
+" f - find
+map <leader>fe <Action>(RecentFiles)
+map <leader>fp <Action>(FindInPath)
+map <leader>ff <Action>(GotoFile)
+map <leader>fc <Action>(GotoClass)
 map <leader>/ <Action>(Find)
 
-map <leader>e <Action>(GotoNextError)
-map <leader>E <Action>(GotoPrevious1Error)
+map <leader>m <Action>(ToggleDistractionFreeMode)
 
+nmap [[ <Action>(MethodUp)
+nmap ]] <Action>(MethodDown)
 
+nmap <leader>c <Action>(CallHierarchy)
+
+map <leader><enter> <Action>(HideActiveWindow)
 
 " Don't use Ex mode, use Q for formatting.
 map Q gq
